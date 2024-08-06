@@ -10,3 +10,5 @@ print(a + str(b) + c)
 a = "10"
 b = 2.0
 print(int(a) + int(b))
+
+print("asdasdasdasd")
