@@ -1,3 +1,5 @@
+import time
+import random
 from vk_api.longpoll import VkLongPoll, VkEventType
 from datetime import datetime
 from vk_api import VkApi
@@ -14,12 +16,33 @@ while True:
             print(f"Текст сообщения: {str(event.text)}")
             responce = event.text.lower()
             if event.from_user and not event.from_me:
-                if responce == "Привет":
+                if responce.find("привет") >= 0 or responce.find("здраствуй") >= 0:
+                    time.sleep(random.uniform(0.5, 3))
                     session.method(
                         "messages.send",
                         {
                             "user_id": event.user_id,
                             "message": "И тебе привет!",
+                            "random_id": 0,
+                        },
+                    )
+                elif responce.find("как дела") >= 0:
+                    time.sleep(random.uniform(0.5, 3))
+                    session.method(
+                        "messages.send",
+                        {
+                            "user_id": event.user_id,
+                            "sticker_id": 63,
+                            "random_id": 0,
+                        },
+                    )
+                elif responce.find("аватарка") >= 0 or responce.find("ава") >= 0:
+                    time.sleep(random.uniform(0.5, 3))
+                    session.method(
+                        "messages.send",
+                        {
+                            "user_id": event.user_id,
+                            "attachment": "photo471186543_457260813",
                             "random_id": 0,
                         },
                     )
