@@ -32,7 +32,7 @@ while True:
                         "messages.send",
                         {
                             "user_id": event.user_id,
-                            "sticker_id": 63,
+                            "sticker_id": 60943,
                             "random_id": 0,
                         },
                     )
@@ -42,7 +42,17 @@ while True:
                         "messages.send",
                         {
                             "user_id": event.user_id,
-                            "attachment": "photo471186543_457260813",
+                            "attachment": "audio-2001720502_8720502",
+                            "random_id": 0,
+                        },
+                    )
+                elif responce.find("мне грустно") >= 0 or responce.find("грустно") >= 0:
+                    time.sleep(random.uniform(0.5, 3))
+                    session.method(
+                        "messages.send",
+                        {
+                            "user_id": event.user_id,
+                            "sticker_id": 63,
                             "random_id": 0,
                         },
                     )
